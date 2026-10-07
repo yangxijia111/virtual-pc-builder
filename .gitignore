@@ -1,0 +1,33 @@
+# 依赖
+node_modules/
+
+# 构建产物
+dist/
+
+# 本地验收截图输出（scripts/shot.mjs 生成；对外展示的截图见 docs/screenshots/）
+shots/
+
+# 环境变量与本地配置
+.env
+.env.*
+!.env.example
+
+# 日志与临时文件
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.tmp/
+tmp/
+
+# 编辑器与 IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# 操作系统
+.DS_Store
+Thumbs.db
+desktop.ini

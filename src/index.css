@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 全局基线：黑暗模式唯一主题（#0B0F14 底） */
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  background-color: #0b0f14;
+  color: #e8edf2;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: rgba(123, 227, 189, 0.25);
+}
+
+/* 场景揭幕：CSS 动画淡入（不依赖 JS 时序，任何环境一致） */
+.scene-reveal {
+  animation: scene-fade-in 900ms ease-out both;
+}
+@keyframes scene-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* 侧边栏滚动条隐藏（条目流内部滚动） */
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* 尊重系统减少动效偏好（文档 4.7）：DOM 过渡全部直切 */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

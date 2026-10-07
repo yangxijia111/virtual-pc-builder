@@ -1,0 +1,302 @@
+{
+  "computerId": "main-pc-01",
+  "scene": { "desktopModel": "/assets/models/desk.glb" },
+  "devices": {
+    "keyboard": {
+      "id": "kbd-01",
+      "name": "PBT 二色机械键盘",
+      "modelUrl": "/assets/models/keyboard.glb",
+      "explodeGap": 0.42,
+      "focusCamera": { "position": [0.3, 0.24, 0.46], "target": [0, 0.02, 0] },
+      "layers": [
+        {
+          "id": "keycaps", "index": 1, "name": "键帽", "category": "键帽层",
+          "description": "PBT 二色成型，闭环字腿透光不渗色，键壁加厚到 1.5 mm，敲十万次也不打油。",
+          "materialChip": "PBT 二色", "icon": "/assets/icons/keycap.svg",
+          "nodeNames": ["keycap"], "anchor": "right"
+        },
+        {
+          "id": "switches", "index": 2, "name": "轴体", "category": "轴体层",
+          "description": "AXON 红轴，45g 线性，全键热插拔，五脚座咬住定位板不旷量。",
+          "materialChip": "AXON 红轴", "icon": "/assets/icons/switch.svg",
+          "colorEmphasis": "red", "nodeNames": ["switch"], "anchor": "left"
+        },
+        {
+          "id": "plate", "index": 3, "name": "定位板", "category": "定位板",
+          "description": "1.2 mm 铝制定位板，船型开槽，敲击刚性谱上那个「闷」字全靠它定调。",
+          "materialChip": "6061 铝", "icon": "/assets/icons/plate.svg",
+          "nodeNames": ["plate"], "anchor": "right"
+        },
+        {
+          "id": "pcb", "index": 4, "name": "PCB", "category": "主板",
+          "description": "单键开槽 PCB，南向二极管，全键无冲，支持 QMK / VIA 改键。",
+          "materialChip": "QMK / VIA", "icon": "/assets/icons/pcb.svg",
+          "nodeNames": ["pcb"], "anchor": "left"
+        },
+        {
+          "id": "foam", "index": 5, "name": "夹心棉", "category": "填充层",
+          "description": "Poron 夹心棉 + IXPE 轴下垫双层填充，把空腔音压成一段干净的底鼓。",
+          "materialChip": "Poron", "icon": "/assets/icons/foam.svg",
+          "nodeNames": ["foam", "ixpe"], "anchor": "right"
+        },
+        {
+          "id": "bottom", "index": 6, "name": "底壳", "category": "底壳",
+          "description": "CNC 6063 一体铝壳，阳极氧化哑面，1.72 kg 自重压住每一下。",
+          "materialChip": "6063 铝", "icon": "/assets/icons/case.svg",
+          "nodeNames": ["bottom_case", "feet"], "anchor": "left"
+        }
+      ]
+    },
+
+    "pc-tower": {
+      "id": "tower-01",
+      "name": "ATX 主机",
+      "modelUrl": "/assets/models/pc-tower.glb",
+      "explodeGap": 0.5,
+      "focusCamera": { "position": [0.68, 0.55, 1.0], "target": [0, 0.23, 0] },
+      "layers": [
+        {
+          "id": "glass", "index": 1, "name": "侧透面板", "category": "面板",
+          "description": "4 mm 钢化玻璃，铰链快拆，里头每根灯条的位置都是留给它的舞台。",
+          "materialChip": "钢化玻璃", "icon": "/assets/icons/glass.svg",
+          "nodeNames": ["side_glass"], "anchor": "left"
+        },
+        {
+          "id": "cooler", "index": 2, "name": "风冷散热器", "category": "散热",
+          "description": "双塔六热管风冷，解热 245 W，铜底直接压在 CPU 顶盖上，压 5nm 旗舰烤机不过 72 ℃。",
+          "materialChip": "6 热管", "icon": "/assets/icons/cooler.svg",
+          "nodeNames": ["cooler"], "anchor": "right",
+          "nested": {
+            "id": "cooler-nested", "name": "风冷散热器", "modelUrl": "/assets/models/cooler.glb",
+            "explodeGap": 0.5,
+            "focusCamera": { "position": [0.26, 0.24, 0.42], "target": [0, 0.08, 0] },
+            "layers": [
+              {
+                "id": "fan-front", "index": 1, "name": "前风扇", "category": "风扇",
+                "description": "120 mm FDB 风扇，2000 rpm，风量 62 CFM，噪声封顶 26 dBA。",
+                "materialChip": "FDB 轴承", "icon": "/assets/icons/fan.svg",
+                "nodeNames": ["fan_front"], "anchor": "left"
+              },
+              {
+                "id": "heatpipes", "index": 2, "name": "热管", "category": "热管",
+                "description": "6 根 6 mm 烧结热管，温差驱动的无声泵，把 245 W 从铜底搬到鳍片。",
+                "materialChip": "烧结铜", "icon": "/assets/icons/pipe.svg",
+                "nodeNames": ["heatpipe"], "anchor": "right"
+              },
+              {
+                "id": "fins", "index": 3, "name": "鳍片堆", "category": "鳍片",
+                "description": "56 片 0.4 mm 穿 fin 铝片，把热管的热摊成 1.4 ㎡ 的迎风面。",
+                "materialChip": "穿 FIN 铝", "icon": "/assets/icons/fins.svg",
+                "nodeNames": ["fin_stack"], "anchor": "left"
+              },
+              {
+                "id": "coldplate", "index": 4, "name": "铜底", "category": "底座",
+                "description": "镀镍铜底微凸研磨，与 CPU 顶盖的接触面平整到 0.01 mm。",
+                "materialChip": "镀镍铜", "icon": "/assets/icons/coldplate.svg",
+                "nodeNames": ["cold_plate"], "anchor": "right"
+              }
+            ]
+          }
+        },
+        {
+          "id": "cpu", "index": 3, "name": "CPU 处理器", "category": "处理器",
+          "description": "5nm 16 核 32 线程，5.7 GHz 睿频，默认功耗 125 W —— 全机的运算都从这块 4 cm² 的硅片开始。",
+          "materialChip": "5nm 16 核", "icon": "/assets/icons/cpu.svg",
+          "nodeNames": ["cpu"], "anchor": "left",
+          "nested": {
+            "id": "cpu-nested", "name": "CPU 处理器", "modelUrl": "/assets/models/cpu.glb",
+            "explodeGap": 1.6,
+            "mountRotationY": 0,
+            "focusCamera": { "position": [0.11, 0.18, 0.18], "target": [0, -0.04, 0] },
+            "layers": [
+              {
+                "id": "ihs", "index": 1, "name": "金属顶盖", "category": "顶盖",
+                "description": "镀镍紫铜 IHS，钎焊把核心的热抽到散热器，表面激光蚀刻型号与 SN，扛住扣具压力不碎裂。",
+                "materialChip": "镀镍铜", "icon": "/assets/icons/ihs.svg",
+                "nodeNames": ["ihs"], "anchor": "left"
+              },
+              {
+                "id": "die", "index": 2, "name": "核心晶片", "category": "晶片",
+                "description": "1 × CCD + 1 × IOD 双晶片设计，5nm 制程集成 200 多亿晶体管，真正的运算发生在这一小片硅上。",
+                "materialChip": "5nm 双晶片", "icon": "/assets/icons/die.svg",
+                "colorEmphasis": "mint", "nodeNames": ["die"], "anchor": "right"
+              },
+              {
+                "id": "substrate", "index": 3, "name": "基板", "category": "基板",
+                "description": "8 层玻璃纤维基板，把晶片上千条走线扇出到 1718 个触点，边角的陶瓷电容稳住瞬时供电。",
+                "materialChip": "8 层 PCB", "icon": "/assets/icons/substrate.svg",
+                "nodeNames": ["substrate"], "anchor": "left"
+              },
+              {
+                "id": "pins", "index": 4, "name": "触点阵列", "category": "触点",
+                "description": "AM5 LGA 1718 镀金触点，比针脚更耐插拔，接触电阻不到 10 mΩ，装回时对准缺角就错不了。",
+                "materialChip": "LGA 1718", "icon": "/assets/icons/pins.svg",
+                "nodeNames": ["pins"], "anchor": "right"
+              }
+            ]
+          }
+        },
+        {
+          "id": "ram", "index": 4, "name": "内存", "category": "内存",
+          "description": "DDR5 6000 MT/s CL30 16G×2，海力士 A-die 颗粒，EXPO 一键超频，是 CPU 的前台工作台。",
+          "materialChip": "DDR5 6000", "icon": "/assets/icons/ram.svg",
+          "nodeNames": ["dimm"], "anchor": "right"
+        },
+        {
+          "id": "gpu", "index": 5, "name": "显卡", "category": "显卡",
+          "description": "三风扇 3.5 槽旗舰，16384 CUDA 核心 + 24 GB GDDR7 显存，外接 12VHPWR 供电，功耗墙 450 W。",
+          "materialChip": "GDDR7", "icon": "/assets/icons/gpu.svg",
+          "colorEmphasis": "red", "nodeNames": ["gpu"], "anchor": "left",
+          "nested": {
+            "id": "gpu-nested", "name": "旗舰显卡", "modelUrl": "/assets/models/gpu.glb",
+            "explodeGap": 0.78,
+            "mountRotationY": 0,
+            "focusCamera": { "position": [0.36, 0.5, 0.66], "target": [0, 0.05, 0] },
+            "layers": [
+              {
+                "id": "front-fans", "index": 1, "name": "轴心风扇模组", "category": "风扇",
+                "description": "三枚 10 cm 轴心扇，9 叶联流扫描叶型，智能启停 0 dB；侧沿贯穿式 RGB 灯条，风先过扇再穿鳍。",
+                "materialChip": "9 叶轴心扇", "icon": "/assets/icons/fan.svg",
+                "colorEmphasis": "red", "nodeNames": ["gpu_fan"], "anchor": "left"
+              },
+              {
+                "id": "heatsink", "index": 2, "name": "散热体", "category": "散热",
+                "description": "均热板直触核心，7 根 8 mm 镀镍热管穿 fin 进 26 片鳍片堆，把 450 W 摊进近 2 ㎡ 的迎风面。",
+                "materialChip": "7 热管均热板", "icon": "/assets/icons/pipe.svg",
+                "nodeNames": ["gpu_hs"], "anchor": "right"
+              },
+              {
+                "id": "pcb", "index": 3, "name": "非公 PCB", "category": "主板",
+                "description": "短卡黑板，GPU 核心 + GDDR7 ×8 环绕布线，16+4 相供电压住 450 W 瞬时波动，尾部镀金金手指即插即用。",
+                "materialChip": "16+4 相供电", "icon": "/assets/icons/pcb.svg",
+                "nodeNames": ["gpu_pcb"], "anchor": "left"
+              },
+              {
+                "id": "backplate", "index": 4, "name": "金属背板", "category": "背板",
+                "description": "拉丝铝背板带尾部镂空窗，贯穿风道直接吹穿鳍片，螺丝垫片把 PCB 拉平不弯板。",
+                "materialChip": "拉丝铝", "icon": "/assets/icons/shell.svg",
+                "nodeNames": ["gpu_bp"], "anchor": "right"
+              }
+            ]
+          }
+        },
+        {
+          "id": "ssd", "index": 6, "name": "固态硬盘", "category": "存储",
+          "description": "M.2 2280 PCIe 4.0，独立缓存 2 GB，顺序读 7400 MB/s，系统和游戏都住在里面。",
+          "materialChip": "PCIe 4.0", "icon": "/assets/icons/ssd.svg",
+          "nodeNames": ["m2_ssd"], "anchor": "right"
+        },
+        {
+          "id": "mobo", "index": 7, "name": "主板", "category": "主板",
+          "description": "ATX B650，16+2+1 相供电，AM5 插座托住 CPU，2.5G 网卡与 Wi-Fi 6E 一体，所有硬件都在它身上汇合。",
+          "materialChip": "B650", "icon": "/assets/icons/mobo.svg",
+          "nodeNames": ["motherboard"], "anchor": "left"
+        },
+        {
+          "id": "psu", "index": 8, "name": "电源", "category": "电源",
+          "description": "ATX 3.0 850W 金牌全模组，原生 12VHPWR，平均无故障 10 万小时，全机的能量都从它这里流出。",
+          "materialChip": "850W 金牌", "icon": "/assets/icons/psu.svg",
+          "nodeNames": ["psu"], "anchor": "right"
+        },
+        {
+          "id": "chassis", "index": 9, "name": "机箱骨架", "category": "机箱",
+          "description": "0.8 mm SPCC 钢板骨架，四面快拆，1.2 mm 立柱扛住全部重量，风道也由它规划。",
+          "materialChip": "SPCC 钢", "icon": "/assets/icons/chassis.svg",
+          "nodeNames": ["chassis"], "anchor": "left"
+        }
+      ]
+    },
+
+    "monitor": {
+      "id": "mon-01",
+      "name": "27″ 4K 显示器",
+      "modelUrl": "/assets/models/monitor.glb",
+      "explodeGap": 0.45,
+      "focusCamera": { "position": [0.62, 0.8, 1.15], "target": [0, 0.5, 0] },
+      "layers": [
+        {
+          "id": "panel", "index": 1, "name": "面板模组", "category": "面板",
+          "description": "27 英寸 IPS 面板，3840 × 2160，178° 可视角，10.7 亿色不含糊。",
+          "materialChip": "4K IPS", "icon": "/assets/icons/panel.svg",
+          "nodeNames": ["panel"], "anchor": "right"
+        },
+        {
+          "id": "backlight", "index": 2, "name": "背光板", "category": "背光",
+          "description": "1152 分区 MiniLED，峰值亮度 1000 nit，暗场压得比深夜还黑。",
+          "materialChip": "MiniLED", "icon": "/assets/icons/backlight.svg",
+          "colorEmphasis": "mint", "nodeNames": ["backlight"], "anchor": "left"
+        },
+        {
+          "id": "driver-board", "index": 3, "name": "驱动板", "category": "驱动",
+          "description": "DP 1.4 + HDMI 2.1 双口，144 Hz 刷新，1 ms GTG 响应不掉链。",
+          "materialChip": "144 Hz", "icon": "/assets/icons/driver.svg",
+          "nodeNames": ["driver_board"], "anchor": "right"
+        },
+        {
+          "id": "power-board", "index": 4, "name": "电源板", "category": "电源",
+          "description": "宽压 100–240 V 直入，额定 90 W，待机功耗压到 0.5 W 以下。",
+          "materialChip": "90W 宽压", "icon": "/assets/icons/power.svg",
+          "nodeNames": ["power_board"], "anchor": "left"
+        },
+        {
+          "id": "shell", "index": 5, "name": "后壳", "category": "外壳",
+          "description": "0.8 mm 铝镁合金后壳，磨砂喷涂，压住 6.2 kg 的整机重量。",
+          "materialChip": "铝镁合金", "icon": "/assets/icons/shell.svg",
+          "nodeNames": ["monitor_shell"], "anchor": "right"
+        },
+        {
+          "id": "stand", "index": 6, "name": "支架", "category": "支架",
+          "description": "铝合金支架，-5° ~ 20° 俯仰 + 130 mm 升降，VESA 100×100 免工具快拆。",
+          "materialChip": "VESA 100", "icon": "/assets/icons/stand.svg",
+          "nodeNames": ["stand"], "anchor": "left"
+        }
+      ]
+    },
+
+    "mouse": {
+      "id": "mouse-01",
+      "name": "有线电竞鼠标",
+      "modelUrl": "/assets/models/mouse.glb",
+      "explodeGap": 0.3,
+      "focusCamera": { "position": [0.17, 0.17, 0.36], "target": [0, -0.055, 0] },
+      "layers": [
+        {
+          "id": "top-shell", "index": 1, "name": "上盖按键", "category": "外壳",
+          "description": "一体式上盖 + 左右分体按键，0.8 mm 薄壁 ABS 类肤涂层，左翼带前进 / 后退侧键，按键缝均匀不卡手。",
+          "materialChip": "类肤涂层", "icon": "/assets/icons/mouse-shell.svg",
+          "nodeNames": ["top_shell"], "anchor": "right"
+        },
+        {
+          "id": "scroll-wheel", "index": 2, "name": "滚轮", "category": "滚轮",
+          "description": "TTC 防尘编码器，橡胶轮盘 26 条防滑刻度，中键按压同轴触发，24 刻度阻尼均匀，一格一段确认感。",
+          "materialChip": "TTC 编码器", "icon": "/assets/icons/wheel.svg",
+          "nodeNames": ["scroll_wheel"], "anchor": "left"
+        },
+        {
+          "id": "micro-switch", "index": 3, "name": "微动", "category": "微动",
+          "description": "欧姆龙 D2FC 微动 ×3（左 / 右 / 中键），6000 万次寿命，左键回弹脆得像快门，双击不粘滞。",
+          "materialChip": "6000 万次", "icon": "/assets/icons/micro.svg",
+          "colorEmphasis": "red", "nodeNames": ["micro_switch"], "anchor": "right"
+        },
+        {
+          "id": "mouse-pcb", "index": 4, "name": "主板", "category": "主板",
+          "description": "原相 3395 光学传感器（蓝色镜头对准底盖光孔）+ 主控芯片，26000 DPI / 1000 Hz 回报率，插线即用零延迟。",
+          "materialChip": "3395 传感器", "icon": "/assets/icons/mouse-pcb.svg",
+          "nodeNames": ["mouse_pcb"], "anchor": "left"
+        },
+        {
+          "id": "cable", "index": 5, "name": "线材", "category": "连接线",
+          "description": "2 m 编织伞绳线，柔韧到可以绕指不打结；应力护套抗弯折，USB-A 镀金接头，拖拽感近乎无线。",
+          "materialChip": "编织线 2 m", "icon": "/assets/icons/cable.svg",
+          "nodeNames": ["cable"], "anchor": "right"
+        },
+        {
+          "id": "base", "index": 6, "name": "底盖脚贴", "category": "底盖",
+          "description": "100% PTFE 纯特氟龙脚贴四片，0.8 mm 厚；传感器光孔带防尘圈，推起来像溜冰。",
+          "materialChip": "PTFE 脚贴", "icon": "/assets/icons/feet.svg",
+          "nodeNames": ["base_cover", "ptfe_feet"], "anchor": "left"
+        }
+      ]
+    }
+  }
+}
